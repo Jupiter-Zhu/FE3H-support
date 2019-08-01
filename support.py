@@ -222,7 +222,7 @@ class support_database:
         #for the reverse lookeup
         self.obj_to_char = collections.defaultdict(set)
         
-        #for showing the lis, pre-checking whether an item/char could be look-up, and for later adding more character if DLC
+        #for showing the list, pre-checking whether an item/char could be look-up, and for later adding more character if DLC
         
        
         #item_type code
@@ -259,6 +259,18 @@ for data in batch_data:
         
     data_type_counter += 1
 
-FETH.char_list
-FETH.char_to_obj[2]["Marianne"]
+# FETH.person_likes_item("Marianne",1, "Lavender Tea")
+# FETH.person_likes_item("Annette",1, "Almond Tea")
+# FETH.person_likes_item("Flayn",1, "Sweet Apple Tea")
+# FETH.person_likes_item("Lysithea",1, "Sweet Apple Tea")
+# FETH.person_likes_item("Lysithea",1, "Crescent Moon Tea")
+# FETH.person_likes_item("Felix",1, "Four Spice Blend")
+# FETH.person_likes_item("Edelgard",1, "Bergamot")
+# FETH.person_likes_item("Claude",1, "Almyran Pine Needles")
+# FETH.person_likes_item("Petra",1, "Ginger Tea")
+# FETH.person_likes_item("Petra",1, "Crescent Moon Tea")
+
+
+
+
 
