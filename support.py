@@ -225,7 +225,7 @@ class support_database:
         #for showing the list, pre-checking whether an item/char could be look-up, and for later adding more character if DLC
         
        
-        #item_type code
+        #item_type_code
         #0-tea,1-tea_dialogue,2-gifts,3-lost_items,4-flowers
         self.item_list=[set(),set(),set(),set(),set()]    
         
@@ -269,6 +269,49 @@ for data in batch_data:
 # FETH.person_likes_item("Claude",1, "Almyran Pine Needles")
 # FETH.person_likes_item("Petra",1, "Ginger Tea")
 # FETH.person_likes_item("Petra",1, "Crescent Moon Tea")
+
+
+
+running = True
+
+while running:
+	print("_"*40)
+	print("Type either character name or item name to show corresponding list")
+	print("Note that all nouns in items are capitalized except propsitions (and, of ,to, etc.) e.g. 'New Bottle of Perfume' (without the ' of course, similar rules applied to the commands below) ")
+	print("Type 'show_char_list' to see all possible characters")
+	print("Type 'show_item_list_ITC' to see list of corresponding items")
+	print("and ITC stands for item type code, which is an integer from 0 to 4, as 0-tea,1-tea_dialogue,2-gifts,3-lost_items,4-flowers ")
+	print("type 'done' to finish ")
+
+	user_input=input("FETH support items/char look up! :")
+
+	if user_input in FETH.char_list:		
+
+		item_type_code = int(input("And What kind of items are you looking up? \ndInput the corresponding integer 0-tea,1-tea_dialogue,2-gifts,3-lost_items,4-flowers :" ) )
+
+		answer = FETH.char_to_obj[item_type_code][user_input]
+
+		line ='-' * len(str(answer))
+
+		print (line )
+
+		print(answer)
+
+		print (line) 
+		
+
+		reset = input("Wanna look up something else? Type done to finish. Type anything else to look up again:")
+
+		if reset == "done":
+			break
+		else:
+			print("Reset!")
+
+
+
+	if user_input == "done":
+
+		break
 
 
 
