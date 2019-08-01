@@ -1630,8 +1630,8 @@ class support_database:
 
 
 FETH=support_database()
-batch_data=[gifts_batch,lost_items_batch,flowers_batch]
-data_type_counter=2
+batch_data=[tea_batch, tea_dial_batch, gifts_batch, lost_items_batch, flowers_batch]
+data_type_counter = 0
 for data in batch_data:
     for row in data:
         for item in row[1:]:
@@ -1639,16 +1639,6 @@ for data in batch_data:
         
     data_type_counter += 1
 
-# FETH.person_likes_item("Marianne",1, "Lavender Tea")
-# FETH.person_likes_item("Annette",1, "Almond Tea")
-# FETH.person_likes_item("Flayn",1, "Sweet Apple Tea")
-# FETH.person_likes_item("Lysithea",1, "Sweet Apple Tea")
-# FETH.person_likes_item("Lysithea",1, "Crescent Moon Tea")
-# FETH.person_likes_item("Felix",1, "Four Spice Blend")
-# FETH.person_likes_item("Edelgard",1, "Bergamot")
-# FETH.person_likes_item("Claude",1, "Almyran Pine Needles")
-# FETH.person_likes_item("Petra",1, "Ginger Tea")
-# FETH.person_likes_item("Petra",1, "Crescent Moon Tea")
 
 
 
@@ -1660,13 +1650,28 @@ help_message = "_"*40 +
   "\n Type 'show_char_list' to see all possible characters"+
   "\n Type 'show_item_list_ITC' to see list of corresponding items"+
   "\n and ITC stands for item type code, which is an integer from 0 to 4, as 0-tea,1-tea_dialogue,2-gifts,3-lost_items,4-flowers"+
-  "\n type 'done' to finish )"+
+  "\n type 'done' to finish )\n"+
   "_" *40 
 
 
-def lookup_items():
+def lookup_items(name):
 
-  item_type = input("And What kind of items are you looking up? \nInput the corresponding types: tea,tea_dialogue, gifts, lost_items, flowers :" )
+  item_type = input("And What kind of items are you looking up? \nInput the INTEGER corresponding types: \n 0 - tea, 1- tea_dialogue, 2 - gifts, 3 - lost_items, 4 - flowers :" )
+  legal_range={0,1,2,3,4}
+
+  if item_type not in legal_range:
+
+  	print( "Not a valid input type" )
+  else:
+  	answer = FETH.char_to_obj[item_type][name]
+
+  	line ='-' * len(str(answer))
+
+	print (line )
+
+	print(answer)
+
+	print (line) 
 
 
 def interface():
@@ -1677,30 +1682,18 @@ def interface():
 
   print("_"*40 )
 
-	user_input=input("FETH support items/char look up! :")
+  user_input=input("FETH support items/char look up! :")
 
-	if user_input in FETH.char_list:		
+  if user_input in FETH.char_list:
+  	lookup_items(user_input)
 
-		item_type_code = int(input("And What kind of items are you looking up? \ndInput the corresponding integer 0-tea,1-tea_dialogue,2-gifts,3-lost_items,4-flowers :" ) )
+  	reset = input("Wanna look up something else? Type done to finish. Type anything else to look up again:")
 
-		answer = FETH.char_to_obj[item_type_code][user_input]
+  	if reset != "done":
 
-		line ='-' * len(str(answer))
+  		print("Resetting"+"."*20)
 
-		print (line )
-
-		print(answer)
-
-		print (line) 
-		
-
-		reset = input("Wanna look up something else? Type done to finish. Type anything else to look up again:")
-
-		if reset != "done":
-
-			print("Resetting"+"."*20)
-
-      interface()
+  		interface()
 
 
 
