@@ -1,3 +1,3 @@
-from support import interface
+from interface import interface
 
 interface()
