@@ -177,11 +177,7 @@ def output_answer(answer, answer_type,current_color=None):
 
 	
 		
-	# print (upper_line)
 
-	# print(answer)
-
-	# print (lower_line) 
 
 
 
@@ -253,26 +249,6 @@ def output_keywords(keywords):
 		interface()
 
 
-# def reset():
-
-# 	reset_input = input("\nWanna look up something else? Check the database by\n typing 'help',\n typing 'done' to quit, or typing\n anything else to reset:")
-
-
-# 	if reset_input == 'help':
-
-# 		print(bg.white+fg.black+help_message+bg.rs+fg.rs)
-
-# 		interface()
-
-# 	elif reset_input == 'done':
-
-# 		print("bye__________________________")
-
-# 	else:
-		
-# 		print(fg.yellow + "Resetting"+"."*20 +fg.rs)
-
-# 		interface()
 
 	
 
@@ -389,5 +365,3 @@ def interface():
 	
 
 
-
-interface()
