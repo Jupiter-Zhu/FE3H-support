@@ -224,7 +224,7 @@ def output_keywords(keywords):
 
 	elif keywords[:-1] == 'show_item_list_':
 
-			item_type_code = int(user_input[-1])
+			item_type_code = int(keywords[-1])
 
 			if item_type_code not in [0,1,2,3,4,5]:
 
